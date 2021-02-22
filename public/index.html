@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My great page</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="js/getcomments.js"></script>
+  <script src="js/postcomments.js"></script>
+  <script src="js/deletecomment.js"></script>
+</head>
+<body>
+<input type="text" placeholder="@handle" id="handle">
+<input type="text" placeholder="@comment" id="comment">
+<button onclick="postComment()">Post</button>
+<button onclick="getComments()">Get Comments</button>
+<div id="comments"></div>
+</body>
+</html>
