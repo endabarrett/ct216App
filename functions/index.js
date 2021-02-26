@@ -1,13 +1,18 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const cors = require('cors')({origin: true});
+const cors = require('cors')({origin:true});
+
 admin.initializeApp();
 
 exports.postcomments = functions.https.onRequest((request, response) => {
    // 1. Receive comment data in here from user POST request
    // 2. Connect to our Firestore database
 	cors(request, response, () => {
-		return admin.firestore().collection('comments').add(request.body).then(() => {
+
+		const currentTime = admin.firestore.Timestamp.now();
+		request.body.timestamp = currentTime;
+
+		return admin.firestore().collection('comments').add(request.body).then((snapshot) => {
 			response.send("Saved in the database");
 		});
 	});
@@ -18,7 +23,7 @@ exports.getcomments = functions.https.onRequest((request, response) => {
 	cors(request, response, () => {
 		// 1. Connect to our Firestore database
 		let myData = [];
-		admin.firestore().collection('comments').get().then((snapshot) => {
+		admin.firestore().collection('comments').orderBy("timestamp").get().then((snapshot) => {
 
 			if (snapshot.empty) {
 				console.log('No matching documents.');

@@ -15,7 +15,7 @@ function getComments()
                 var data = JSON.parse(xhr.responseText);
                 for(var i=0; i<data.length; i++)
                 {
-                    sHTML += "<p> Handle: " + data[i].handl+ "</p>";
+                    sHTML += "<p> Handle: " + data[i].handle+ "</p>";
                     sHTML += "<p> Comment: " + data[i].comment+ "</p>";
                     sHTML += "<button onclick=deletecomment(" + "'" + data[i].id + "'" + ")>Delete Comment</button>";
                     comments.innerHTML = sHTML;
