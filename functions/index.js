@@ -43,6 +43,15 @@ exports.getcomments = functions.https.onRequest((request, response) => {
 	});
 });
 
+exports.updatecomment = functions.https.onRequest((request, response) => {
+	cors(request, response, () => {
+		// your function body here - use the provided req and res from cors
+		admin.firestore().collection("comments").doc(request.query.id).update(request.body).then(function() 	{
+			response.send("Document successfully updated!");
+		})
+	});
+});
+
 exports.deletecomment = functions.https.onRequest((request, response) => {
 	cors(request, response, () => {
 		// your function body here - use the provided req and res from cors
