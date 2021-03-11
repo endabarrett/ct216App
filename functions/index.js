@@ -46,7 +46,7 @@ exports.getcomments = functions.https.onRequest((request, response) => {
 exports.login = functions.https.onRequest((request, response) => {
 	cors(request, response, () => {
 		// function body here - use the provided req and res from cors
-			response.send("You are not welcome here");
+			response.send("Hello World");
 	});
 });
 
