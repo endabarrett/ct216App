@@ -52,6 +52,15 @@ exports.updatecomment = functions.https.onRequest((request, response) => {
 	});
 });
 
+exports.login = functions.https.onRequest((request, response) => {
+	cors(request, response, () => {
+		
+			response.send("Logged in");
+
+	});
+});
+
+
 exports.deletecomment = functions.https.onRequest((request, response) => {
 	cors(request, response, () => {
 		// your function body here - use the provided req and res from cors
