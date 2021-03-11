@@ -27,7 +27,7 @@ exports.getcomments = functions.https.onRequest((request, response) => {
 
 			if (snapshot.empty) {
 				console.log('No matching documents.');
-				response.send('No data in database');
+				response.send('No data ');
 				return;
 			}
 
