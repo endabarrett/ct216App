@@ -1,9 +1,9 @@
-function register()
+function login()
 {
     let email = document.getElementById('exampleInputEmail1').value
     let password = document.getElementById('exampleInputPassword1').value
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
@@ -13,7 +13,6 @@ function register()
         .catch((error) => {
             var errorCode = error.code;
             var errorMessage = error.message;
-            // ..
-            console.log(errorMessage, errorCode);
+            console.log(errorCode, errorMessage);
         });
 }
