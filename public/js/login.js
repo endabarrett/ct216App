@@ -7,6 +7,11 @@ function login()
         .then((userCredential) => {
             // Signed in
             var user = userCredential.user;
+            document.cookie = "accessToken=" + user.za;
+            document.cookie = "uid=" + user.uid;
+            console.log("User object", user);
+            // Call firebase function to save users other credentials, create another docs etc.
+
             window.location.href = "/secure.html"
             // ...
         })
