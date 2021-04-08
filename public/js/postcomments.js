@@ -1,7 +1,7 @@
 // POST comments
 function postComment() {
     var xhr = new XMLHttpRequest();
-    xhr.open('POST', 'https://us-central1-ct216app.cloudfunctions.net/postcomments');
+    xhr.open('POST', 'http://localhost:5001/ct216app/us-central1/postcomments');
 
     xhr.setRequestHeader("Content-type", "application/json");
     // Track the state changes of the request.
