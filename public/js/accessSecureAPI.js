@@ -1,4 +1,13 @@
 function getSecureAPI(){
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            console.log(firebase.auth().currentUser);
+        } else {
+            // No user is signed in.
+        }
+    });
+
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://us-central1-ct216app.cloudfunctions.net/authorizedendpoint');
 
